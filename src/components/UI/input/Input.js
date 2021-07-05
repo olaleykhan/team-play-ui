@@ -17,11 +17,12 @@ const input = (props)=>{
     }
     return(
         <div className="Input">
-            <label className="Label">
+            <label htmlFor={props.id} className="Label">
                 {props.label}
 
             </label>
             {inputElement}
+            <p className="err">{props.err && props.err}</p>
 
         </div>
     )

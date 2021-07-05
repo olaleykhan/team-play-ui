@@ -27,3 +27,10 @@
     color: white;
     background-color: rgb(158, 255, 179);
 }
+
+.err{
+    color: rgb(245, 98, 98);
+    font-size: 12px;
+    font-style: oblique;
+    
+}
