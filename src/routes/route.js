@@ -6,8 +6,8 @@ import {
     Link
   } from "react-router-dom";
 
-  import SignIn from "../views/auth/SignIn";
-  import SignUp from "../views/auth/SignUp";
+  import SignIn from "../views/auth/signin/SignIn";
+  import SignUp from "../views/auth/signup/SignUp";
   import Home from "../views/Home";
 
 

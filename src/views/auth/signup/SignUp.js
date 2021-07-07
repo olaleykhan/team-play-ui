@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-import { Link } from 'react-router-dom';
-import AuthWrapper from '../../layouts/AuthWrapper';
-import Input from '../../components/UI/input/Input';
-import Btn from '../../components/UI/button';
-import authService from '../../services/auth.services';
-import Spinner from '../../components/UI/spinner/spinner';
+import { Link} from 'react-router-dom';
+import AuthWrapper from '../../../layouts/AuthWrapper';
+import Input from '../../../components/UI/input/Input';
+import Btn from '../../../components/UI/button';
+import authService from '../../../services/auth.services';
+import Spinner from '../../../components/UI/spinner/spinner';
 import './signUp.css'
 
 export class SignUp extends Component {
@@ -61,7 +61,13 @@ export class SignUp extends Component {
         if(this.formValid){
             this.setState({ loading: true });
             this.service.sendSignUpData(user)
-            .then(() => this.setState({ loading: false }));
+            .then(() =>{
+                this.setState({ loading: false });
+                
+                this.props.history.push('/sign-in')
+            });
+
+            
         } else{
             this.displayError();
         }

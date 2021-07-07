@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
+import App from './App';
 import Route from './routes/route'
 import { store } from './app/store';
 import { Provider } from 'react-redux';
@@ -14,7 +14,7 @@ const mountNode =  document.getElementById('root');
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Route />
+      <App />
     </Provider>
   </React.StrictMode>,
  mountNode
