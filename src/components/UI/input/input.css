@@ -24,8 +24,10 @@
 
 .InputElement:focus{
     outline: none;
-    color: white;
-    background-color: rgb(158, 255, 179);
+    background-color: white;
+    /* color: rgb(158, 255, 179); */
+    color: rgb(61, 248, 101);
+    font-size: large;
 }
 
 .err{
@@ -34,3 +36,9 @@
     font-style: oblique;
     
 }
+
+textarea.noscrollbars {
+    overflow: hidden;
+    width: 100%;
+    height: 40vh;
+  }

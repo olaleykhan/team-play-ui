@@ -42,8 +42,8 @@ export default class AuthService {
           
             return Promise.resolve(result);
             // return Promise.resolve(result)
-            console.log(result);
-            return result;
+            // console.log(result);
+            // return result;
         } catch (error) {
             return Promise.reject(error)
         }

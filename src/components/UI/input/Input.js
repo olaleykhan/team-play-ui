@@ -9,7 +9,7 @@ const input = (props)=>{
         inputElement = <input className="InputElement" {...props}   />;
         break;
         case('textarea'):
-        inputElement = <textarea className="InputElement" {...props}  />;
+        inputElement = <textarea className="InputElement noscrollbars" {...props}  />;
         break;
         default:
             inputElement = <input className="InputElement" {...props}  />;

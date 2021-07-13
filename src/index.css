@@ -21,3 +21,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.my-btn{
+  padding:  5px 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+
+}
+
+a{
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.text-primary{
+  color: rgb(42, 235, 138) !important;
+  font-size: x-large;
+
+}
+
+.btn-primary{
+  background-color: rgb(42, 235, 138);
+  border: 2px solid rgb(33, 202, 117);
+  color:  white !important;
+
+}
+
+.btn-primary:hover{
+  background-color: rgb(33, 202, 117);
+
+}

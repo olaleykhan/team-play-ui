@@ -1,17 +1,19 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
 import { Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+import {signup} from '../../../store/actions/index';
+
 import AuthWrapper from '../../../layouts/AuthWrapper';
 import Input from '../../../components/UI/input/Input';
 import Btn from '../../../components/UI/button';
-import authService from '../../../services/auth.services';
+// import authService from '../../../services/auth.services';
 import Spinner from '../../../components/UI/spinner/spinner';
 import './signUp.css'
 
 export class SignUp extends Component {
     constructor(props) {
         super(props);
-        this.service = new authService();
+        // this.service = new authService();
         this.state = {
             // user: {
             firstName: "",
@@ -59,13 +61,16 @@ export class SignUp extends Component {
         e.preventDefault();
         // this.formValid&&this.setState({formValid:true})
         if(this.formValid){
-            this.setState({ loading: true });
-            this.service.sendSignUpData(user)
-            .then(() =>{
-                this.setState({ loading: false });
+            // this.setState({ loading: true });
+            // this.service.sendSignUpData(user)
+            console.log(user);
+            this.props.signup(user);
+            this.props.history.push('/sign-in')
+            // .then(() =>{
+            //     // this.setState({ loading: false });
                 
-                this.props.history.push('/sign-in')
-            });
+            //     this.props.history.push('/sign-in')
+            // });
 
             
         } else{
@@ -141,7 +146,6 @@ export class SignUp extends Component {
                     <Input label="password" type="input" id="password" value={this.state.password} onBlur={this.handleblur('password')} err={errors.password} onChange={this.handleInputChange} />
                     <Btn > Submit</Btn>
                 </form>
-                <Link to="/"> <Btn> home </Btn></Link>
 
             </AuthWrapper>
         )
@@ -152,6 +156,12 @@ export class SignUp extends Component {
 
 }
 
-export default SignUp;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signup: (value) => dispatch(signup(value)),
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SignUp);
 
 
