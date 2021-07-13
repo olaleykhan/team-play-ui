@@ -10,17 +10,22 @@ export default class AuthService {
         this.axios = axios
     }
 
+    delayMe = (i)=>{
+        setTimeout(() => {
+           const  x= i
+            return x                
+        }, 1000);
+    }
+
     async sendSignUpData (data){
 
-        const delayMe = (data)=>{
-            setTimeout(() => {
-                return data                
-            }, 1000);
-        }
+       
         try {
-            console.log(data)
-             const msg = await delayMe("sign up successfull")
-            return msg;
+            // console.log(ndata)
+            
+            //  const msg = await this.delayMe(data)
+             axios.post('/users.json', data)
+            return "success";
 
         } catch(error){
             console.log(error)
@@ -37,8 +42,8 @@ export default class AuthService {
           
             return Promise.resolve(result);
             // return Promise.resolve(result)
-            console.log(result);
-            return result;
+            // console.log(result);
+            // return result;
         } catch (error) {
             return Promise.reject(error)
         }
