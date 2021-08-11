@@ -46,7 +46,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 //   );
 
 const store = createStore(rootReducer,
-  composeEnhancers(applyMiddleware( logger, thunk.withExtraArgument({ getFirebase, getFirestore })),
+  composeEnhancers(applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
     reduxFirestore(fbConfig),
     reactReduxFirebase(fbConfig, {attachAuthIsReady:true})));
 
