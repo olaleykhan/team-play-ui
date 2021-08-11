@@ -1,0 +1,39 @@
+.home {
+  /* max-width: 96%; */
+  background: url("../../assets/images/home-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+  text-align: center;
+  height: calc(100vh - 56px);
+  /* background-color: aqua; */
+  overflow-y: hidden;
+}
+
+.home p {
+  color: white;
+  font-size: 15px;
+}
+
+/* style={{ backgroundImage: homeBg, height: "100vh", overflow: 'hidden' }} */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 600px) {
+  .home h3 {
+    font-size: 18px;
+  }
+}
+
+quote {
+  display: block;
+  margin: 0 auto;
+  justify-self: center;
+  position: absolute;
+  bottom: 2px;
+  text-align: center;
+}

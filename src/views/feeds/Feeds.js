@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { authIsReady, firestoreConnect } from 'react-redux-firebase';
+import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-import {Link, Redirect} from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 // import { Redirect } from 'react-router';
 
 import FeedPost from '../../components/posts/FeedPost';
@@ -10,19 +10,19 @@ import FeedPost from '../../components/posts/FeedPost';
 
 export class Feeds extends Component {
     render() {
-        const {posts, auth} = this.props;
+        const { posts, auth } = this.props;
         console.log(auth)
-        if(!auth.uid) return <Redirect to="/sign-in" />
+        if (!auth.uid) return <Redirect to="/sign-in" />
 
-        if(posts){
-            return(
+        if (posts) {
+            return (
                 this.props.posts.map((post) => {
-                    return <Link  key={post.id}  to={'feeds/'+post.id} >  <FeedPost post={post} /></Link>
-                    
+                    return <Link key={post.id} to={'feeds/' + post.id} >  <FeedPost post={post} /></Link>
+
 
                 })
             )
-        }else{
+        } else {
             return <h1 className="container center bg-green-400" >Loading...</h1>
         }
     }

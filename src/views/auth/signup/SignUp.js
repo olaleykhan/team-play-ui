@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {signup} from '../../../store/actions/index';
+import { signup } from '../../../store/actions/index';
 
 import AuthWrapper from '../../../layouts/AuthWrapper';
 import Input from '../../../components/UI/input/Input';
@@ -30,12 +30,12 @@ export class SignUp extends Component {
                 email: false,
                 password: false
             },
-            formValid:false,
-            formError:false,
+            formValid: false,
+            formError: false,
         }
 
-        this.handleblur= this.handleblur.bind(this);
-        this.formValid=false;
+        this.handleblur = this.handleblur.bind(this);
+        this.formValid = false;
     }
 
     handleInputChange = (e) => {
@@ -60,7 +60,7 @@ export class SignUp extends Component {
 
         e.preventDefault();
         // this.formValid&&this.setState({formValid:true})
-        if(this.formValid){
+        if (this.formValid) {
             // this.setState({ loading: true });
             // this.service.sendSignUpData(user)
             console.log(user);
@@ -68,24 +68,24 @@ export class SignUp extends Component {
             this.props.history.push('/sign-in')
             // .then(() =>{
             //     // this.setState({ loading: false });
-                
+
             //     this.props.history.push('/sign-in')
             // });
 
-            
-        } else{
+
+        } else {
             this.displayError();
         }
-    
+
         // axios.post('/users.json', user)
         // console.log(user)
     }
-    displayError=()=>{
-        this.setState({formError:true})
+    displayError = () => {
+        this.setState({ formError: true })
         setTimeout(() => {
-            this.setState({formError:false})
+            this.setState({ formError: false })
 
-            
+
         }, 3000);
     }
 
@@ -105,7 +105,7 @@ export class SignUp extends Component {
             email: "",
             password: ""
         };
-        
+
 
         if (this.state.touched.firstName && firstName.length < 2) {
             errors.firstName = "First name should be greater than 2 characters"
@@ -121,10 +121,10 @@ export class SignUp extends Component {
         if ((this.state.touched.email && !email.includes('@')) || (this.state.touched.email && !email.includes('.'))) {
             errors.email = "this does not look like a valid email. please adjust appropriately."
         }
-        if(errors.firstName.length<1 && errors.userName.length<1 && errors.email.length<1 && errors.password.length<1 && this.state.firstName.length>0 && this.state.email.length>0 && this.state.userName.length>0 && this.state.password.length>0){
-            this.formValid=true;
-        }else{
-            this.formValid=false;
+        if (errors.firstName.length < 1 && errors.userName.length < 1 && errors.email.length < 1 && errors.password.length < 1 && this.state.firstName.length > 0 && this.state.email.length > 0 && this.state.userName.length > 0 && this.state.password.length > 0) {
+            this.formValid = true;
+        } else {
+            this.formValid = false;
 
         }
         return errors;
@@ -163,5 +163,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(null, mapDispatchToProps)(SignUp);
-
-
